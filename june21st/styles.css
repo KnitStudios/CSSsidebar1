@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightgray;
+}
+
+.sidebar {
+    height: 100%;
+    width: 100px; /* Initial width to only show icons */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f2f2f2;
+    transition: width 0.3s;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px ;
+    position: relative; /* Ensure relative positioning for absolute child */
+}
+
+.logo {
+    width: 40px; /* Adjust size as needed */
+    height: auto;
+    opacity: 1; /* Ensure default logo is visible */
+    transition: opacity 0.3s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#default-logo, #hover-logo {
+    height: 40px; /* Ensure both logos have the same height */
+    width:auto;
+}
+
+#hover-logo {
+    opacity: 0; /* Hide hover logo by default */
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.sidebar-menu li {
+    padding: 0px 17px;
+    display: flex;
+    
+    align-items: center;
+}
+
+.sidebar-menu li a {
+    color: #313131;
+    text-decoration: none;
+    display: flex;
+    padding: 15px 15px 15px 0px;
+    align-items: center;
+    width:100%;
+    padding-left:20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar-menu li a:hover {
+    background-color: lightgray;
+}
+
+.sidebar-menu li a .icon {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0; /* Prevent icons from shrinking */
+}
+
+.sidebar-menu li a .text {
+    opacity: 0;
+    margin-left: 10px;
+    transition: opacity 0.3s;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.main-content {
+    margin-left: 60px; /* Match initial width of sidebar */
+    padding: 20px;
+    transition: margin-left 0.3s;
+}
+
+.sidebar:hover {
+    width: 250px; /* Expand sidebar width on hover */
+}
+
+.sidebar:hover .logo#default-logo {
+    opacity: 0; /* Hide default logo on hover */
+}
+
+.sidebar:hover .logo#hover-logo {
+    opacity: 1; /* Show hover logo on hover */
+}
+
+.sidebar:hover .sidebar-menu li a .text {
+    opacity: 1;
+}
